@@ -36,7 +36,7 @@ angular.module('sample.widgets.news', ['adf.provider'])
         resolve: {
           feed: function(newsService, config){
             if (config.url){
-              return newsService.get(config.url);
+              return newsService.get(config.url, config.noOfitems);
             }
           }
         },
@@ -47,9 +47,12 @@ angular.module('sample.widgets.news', ['adf.provider'])
   })
   .service('newsService', function($q, $http, newsServiceUrl){
     return {
-      get: function(url){
+      get: function(url, noOfitems){
+        if (!noOfitems) {
+          noOfitems = 5;
+        }
         var deferred = $q.defer();
-        $http.jsonp(newsServiceUrl + encodeURIComponent(url))
+        $http.jsonp(newsServiceUrl + encodeURIComponent(url) + '&num=' + noOfitems)
           .success(function(data){
             if (data && data.responseData && data.responseData.feed){
               deferred.resolve(data.responseData.feed);

@@ -1,0 +1,15 @@
+<div class="news">
+  <div class="alert alert-info" ng-if="!results">
+    Please insert a service API url in the widget configuration
+  </div>
+  <h4>
+    Rates for: {{results.date.0.dateFetched}}
+  </h4>
+  <ul>
+    <li ng-repeat="currencyConverted in results.aedConversion">
+      {{currencyConverted.currency}} - <b>{{currencyConverted.rate}}</b>
+    </li>
+  </ul>
+  <h4>NPR Rates (Khaleej Times)</h4>
+  <div google-chart chart="chartNpr" style="{{chart.cssStyle}}"/>
+</div>

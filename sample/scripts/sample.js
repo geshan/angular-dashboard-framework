@@ -24,7 +24,7 @@
 'use strict';
 
 angular.module('sample', [
-  'adf', 'sample.widgets.news', 'sample.widgets.randommsg',
+  'adf', 'sample.widgets.news', 'sample.widgets.currencyGold', 'sample.widgets.randommsg',
   'sample.widgets.weather', 'sample.widgets.markdown',
   'sample.widgets.linklist', 'LocalStorageModule'
 ])
@@ -114,22 +114,16 @@ angular.module('sample', [
               }]
             },
             title: "Links"
-          }, {
+          },  {
             type: "weather",
             config: {
-              location: "Hildesheim"
-            },
-            title: "Weather Hildesheim"
-          }, {
-            type: "weather",
-            config: {
-              location: "Edinburgh"
+              location: "Dubai"
             },
             title: "Weather"
           }, {
             type: "weather",
             config: {
-              location: "Dublin,IE"
+              location: "Kathmandu"
             },
             title: "Weather"
           }]
